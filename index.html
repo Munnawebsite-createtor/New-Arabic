@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حلول الجزيرة</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+    }
+
+
+/* hero */
+ @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .animate-slide-in {
+      animation: slideIn 1s ease-out forwards;
+    }
+    /* 4th section */
+    /* Custom colors based on the screenshot */
+        .bg-dark-blue {
+            background-color: #0E1643; /* Adjusted a bit darker than default blue */
+        }
+        .text-light-gray {
+            color: #C0C0C0; /* A light gray for the subtitle */
+        }
+        .border-white-15 {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .bg-card-blue {
+            background-color: #121A4B; /* Slightly lighter blue for cards */
+        }
+        .bg-card-red {
+            background-color: #D62A29; /* The prominent red color */
+        }
+        .text-card-heading {
+            color: #FFFFFF;
+        }
+        .text-card-description {
+            color: #E0E0E0;
+        }
+        .text-counter-number {
+            color: #FFFFFF;
+        }
+        .text-counter-label {
+            color: #C0C0C0; /* Same as light-gray subtitle */
+        }
+        .red-box-shadow {
+            box-shadow: 0 0 20px rgba(214, 42, 41, 0.5); /* Soft glow for the red card */
+        }
+
+        /* 5th Section Code */
+         /* Custom Colors based on the screenshot */
+        .bg-custom-dark-blue {
+            background-color: #0E1643;
+        }
+        .text-custom-light-gray {
+            color: #E0E0E0;
+        }
+        .text-custom-blue {
+            color: #007BFF;
+        }
+        .bg-custom-red {
+            background-color: #D62A29;
+        }
+        .bg-custom-light-blue {
+            background-color: #1A2254;
+        }
+        .text-custom-heading {
+            color: #FFFFFF;
+        }
+        .custom-bullet-list li:before {
+            content: "\2022";
+            color: #D62A29;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            text-align: right;
+            padding-left: 0.5em;
+        }
+        .custom-bullet-list li {
+            padding-right: 1em;
+        }
+
+        /* Overlap adjustments using position: absolute */
+        .image-and-cta-container {
+            position: relative; /* Parent for absolutely positioned elements */
+            /* Ensure this container has enough height to contain both image and the red box properly */
+            padding-bottom: 60px; /* Add space for the lower contact box */
+        }
+
+        .red-box-absolute-overlap {
+            position: absolute;
+            /* Adjust these values based on the exact visual of your screenshot */
+            top: 50%; /* Starts at the vertical middle of the image container */
+            right: 10%; /* Adjust based on desired horizontal position from right edge of image */
+            transform: translateY(-50%); /* Moves the box up by half its own height to center it vertically */
+            z-index: 20;
+            width: 80%; /* Adjust width to match screenshot's red box width */
+            max-width: 350px; /* Max width to prevent it from getting too wide on very large screens */
+            padding: 20px;
+            /* You might need to fine-tune 'top' and 'right' based on your actual image and design */
+        }
+        /* Adjust for smaller screens: Make the image and cta stack normally without absolute positioning */
+        @media (max-width: 1023px) { /* Below large screen (lg) */
+            .image-and-cta-container {
+                padding-bottom: 0; /* Remove padding for stacked layout */
+            }
+            .red-box-absolute-overlap {
+                position: static; /* Revert to normal flow */
+                transform: none; /* Remove transform */
+                top: auto;
+                right: auto;
+                width: 100%; /* Full width */
+                margin-top: -30px; /* Small overlap when stacked, similar to previous approach */
+                margin-bottom: 30px; /* Add margin below if needed */
+            }
+        }
+        /* Ensure the contact box below the red box is positioned correctly on desktop */
+        @media (min-width: 1024px) {
+            .contact-box-adjusted-margin {
+                margin-top: 20px; /* Adjust as needed for spacing below the red box */
+            }
+        }
+
+        /* 6th Section */
+/* Custom Colors based on the screenshot */
+        .text-section-heading {
+            color: #0E1643; /* Dark blue color for the heading */
+        }
+        .bg-logo-card {
+            background-color: #FFFFFF; /* White background for logo cards */
+            border: 1px solid #E0E0E0; /* Light gray border */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+        }
+
+        /* 7th Secction */
+         /* Custom Colors */
+        .text-dark-blue-heading {
+            color: #0E1643;
+        }
+        .text-light-gray-text {
+            color: #555555; /* A slightly darker gray for main text */
+        }
+        .text-meta-label {
+            color: #777777; /* For 'الخدمات' label */
+        }
+        .bg-service-card {
+            background-color: #FFFFFF; /* White background for service cards */
+            border: 1px solid #E0E0E0; /* Light gray border */
+        }
+        .bg-icon-red {
+            background-color: #D62A29;
+        }
+        .text-service-heading {
+            color: #0E1643; /* Dark blue for service item headings */
+        }
+        .text-service-description {
+            color: #666666; /* Gray for service item descriptions */
+        }
+
+        /* Custom Bullet/Icon alignment for service list */
+        .service-list-item {
+            display: flex;
+            align-items: center; /* Vertically center icon and text */
+            gap: 1.5rem; /* Space between icon and text */
+            text-align: right; /* Default text alignment */
+            margin-bottom: 2rem; /* Space between list items */
+        }
+        .service-list-item:last-child {
+            margin-bottom: 0; /* No extra margin for the last item */
+        }
+
+        .service-list-item > div {
+            flex-grow: 1; /* Allow text div to take available space */
+        }
+        
+        /* Image and Overlap Container */
+        .image-container-wrapper {
+            position: relative;
+            z-index: 1; /* Ensure image is behind the service items in a subtle way */
+        }
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+        }
+
+        /* Specific styles for desktop view */
+        @media (min-width: 1024px) { /* On large screens (lg) */
+            /* Default flex-direction: row; will place first item on left, second on right for RTL */
+            .lg\:w-image-column {
+                width: 50%; /* Adjusted width for image column */
+            }
+            .lg\:w-text-column {
+                width: 50%; /* Adjusted width for text column */
+            }
+            
+            /* Position service items over the image slightly on the right side */
+            .service-items-container {
+                position: relative;
+                z-index: 20; /* Ensure service items are above the image */
+                margin-left: -100px; /* Adjusted: Overlap from the left (image on right) */
+                margin-right: 0;
+            }
+        }
+
+ 
+  </style>
+  <!-- Dark mode -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-800 bg-white text-black
+\ dark:bg-gray-900 dark:text-white transition-colors duration-300" >
+
+ <body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow py-4 px-6 sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md transition-colors duration-300">
+    <div class="container mx-auto flex items-center justify-between">
+      <!-- Logo -->
+       <!--Dark Mode-->
+      <div class="flex items-center space-x-2">
+        <img src="image/logo.jpeg" alt="Logo" class="h-10">
+        <span class="text-xl font-bold text-blue-900">AASCC</span>
+      </div>
+      
+      <!-- Buttons (hamburger + dark mode) -->
+      <div class="flex items-center space-x-4">
+        <!-- Dark Mode Toggle -->
+        <button onclick="toggleDarkMode()" class="text-xl">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Hamburger Menu -->
+        <button onclick="toggleMenu()" class="md:hidden text-white dark:text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <!--DarkMode End-->
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex space-x-6 text-lg font-semibold text-blue-900">
+        <a href="#services" class="hover:text-red-600">خدماتنا</a>
+        <a href="#projects" class="hover:text-red-600">أعمالنا</a>
+        <a href="#about" class="hover:text-red-600">من نحن</a>
+      </nav>
+      <!-- Contact Button -->
+      <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">تواصل معنا</a>
+    </div>
+  </header>
+
+<!--Navbar End-->
+
+ 
+<!--New Hero Start-->
+  <section
+  class="relative w-full min-h-screen flex items-center px-6 md:px-20 py-16"
+  style="background-image: url('image/herobg.jpeg');
+   background-size: cover; background-position: center;"
+>
+  <!-- subtle gradient on left side only for text contrast -->
+  <div
+    class="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r
+     from-[#0d1b2aee] to-transparent pointer-events-none"
+  ></div>
+
+  <!-- content wrapper -->
+  <div class="relative z-10 max-w-7xl mx-auto flex 
+  flex-col lg:flex-row items-center gap-12 text-right">
+    <!-- Text Content -->
+    <div
+      class="lg:w-2/5 bg-white bg-opacity-10
+       backdrop-blur-md rounded-3xl p-12 shadow-lg ring-1 ring-white/20"
+    >
+      <h1
+        class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6"
+      >
+        حلول الجزيرة العربية للمقاولات
+      </h1>
+      <p class="text-gray-300 text-lg leading-relaxed mb-8">
+        <span class="font-semibold text-red-400">حلول مبتكرة .. جودة مستدامة</span> |
+        أقدم حلولاً مبتكرة في مجال المقاولات بجودة مستدامة وتقنيات حديثة، تُحوّل الأفكار إلى مشاريع واقعية تَلي أعلى معايير الجودة والسلامة. ونسعى دائماً لتوفير حلول ذكية تتماشى مع احتياجات عملائنا في مختلف القطاعات العمرانية والصناعية.
+      </p>
+
+      <div class="flex items-center gap-6">
+        <a
+          href="#"
+          class="bg-red-500 hover:bg-red-600 transition-colors text-white font-semibold py-3 px-8 rounded-full shadow-md"
+        >
+          شاهد مشاريعنا
+        </a>
+
+        <a
+          href="https://wa.me/"
+          target="_blank"
+          aria-label="WhatsApp"
+          class="flex items-center justify-center bg-green-600 hover:bg-green-700 p-3 rounded-full shadow-md transition-transform transform hover:scale-110"
+        >
+          <img
+            src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png"
+            alt="WhatsApp"
+            class="w-6 h-6"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Image Content -->
+    <div
+      class="lg:w-3/5 rounded-xl overflow-hidden shadow-2xl cursor-pointer transform transition-transform duration-500 hover:scale-105"
+      tabindex="0"
+      role="img"
+      aria-label="مشروع مقاولات"
+    >
+         </div>
+  </div>
+</section>
+
+
+
+
+
+<!--New Hero End-->
+
+<!--2nd section-->
+<section class="bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] py-20 px-6 md:px-16">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Left: Image + Floating Card -->
+    <div class="relative w-full">
+      <img src="image/sec2.jpeg" alt="مبنى"
+        class="rounded-2xl w-full h-[500px] object-cover shadow-xl -skew-y-12" />
+
+      <!-- Floating Info Card -->
+      <div
+        class="absolute -bottom-10 right-6 md:right-12 bg-white rounded-2xl shadow-lg p-6 md:w-[350px] border-l-4 border-red-500 animate-fade-up">
+        <h4 class="text-lg font-bold text-gray-800 mb-2">حيث الجودة عنوان نحن المكان</h4>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          نحن شركة متكاملة في تقديم خدمات تصميم وتصنيع مجاري الهواء والأنظمة الميكانيكية، نمتلك أحدث التقنيات والمعايير العالمية.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Text Content -->
+    <div class="space-y-6 text-right">
+      <h3 class="text-red-600 text-sm font-semibold uppercase tracking-wide">من نحن</h3>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 leading-snug">
+        الشركة الرائدة في توريد وتصميم وتصنيع مجاري الهواء آليًا
+      </h2>
+      <p class="text-gray-600 text-base leading-relaxed">
+        منذ أن أنشأنا شركة حلول التهوية ونحن نخطو خطوات ثابتة ومتسارعة في مجال تعزيز موقعنا كشركة رائدة في مجال التهوية وتطويره وتلبية جميع أنواع التكييف.
+      </p>
+
+      <!-- Features Grid -->
+      <div class="grid sm:grid-cols-2 gap-5 pt-2">
+        <div
+          class="bg-white border-l-4 border-blue-600 p-5 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h4 class="text-base font-bold text-gray-800 mb-1">خدماتنا تبين اهتمامنا</h4>
+          <p class="text-sm text-gray-600">نقوم بتوفير حلول فعالة ومستدامة لتلبية احتياجات عملائنا باستمرار.</p>
+        </div>
+        <div
+          class="bg-white border-l-4 border-green-600 p-5 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+          <h4 class="text-base font-bold text-gray-800 mb-1">طريقتنا تكون الأفضل</h4>
+          <p class="text-sm text-gray-600">نسعى لتقديم خدماتنا بإحترافية بشكل يدعو للثقة والرضا.</p>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap items-center gap-4 pt-6">
+        <a href="#"
+          class="bg-red-600 hover:bg-red-700 transition text-white px-6 py-2 rounded-full font-semibold text-sm shadow">
+          تعرف علينا
+        </a>
+        <span class="text-red-600 font-semibold flex items-center gap-2 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5h12M9 3v2m0 4v2m0 4v2m0 4v2m6-20h6M15 3v18" />
+          </svg>
+          0566337575
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--2nd Section End-->
+
+
+
+
+<!--3rd Section Start-->
+<section class="bg-blue-50 py-16 rounded-xl mx-4 md:mx-8 lg:mx-16 my-12 shadow-inner">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-900 mb-12">
+            شركاء النجاح
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
+
+            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center w-full h-32 md:h-36">
+                <img src="image/l1.jpeg" class="bg-cover">
+                </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center w-full h-32 md:h-36">
+                <img src="image/l3.jpeg" alt="Bank Albilad" class="max-w-full max-h-full object-contain">
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center w-full h-32 md:h-36">
+                <img src="image/l4.jpeg" alt="SNB" class="max-w-full max-h-full object-contain">
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center w-full h-32 md:h-36">
+                <img src="image/l5.jpeg" alt="SAMI" class="max-w-full max-h-full object-contain">
+            </div>
+
+            <div class=" p-4 rounded-lg shadow-md flex items-center 
+                        justify-center w-full h-32 md:h-36">
+                <img src="image/l7.jpeg" alt="STC" class="max-w-full max-h-full object-contain">
+                </div>
+
+        </div>
+    </div>
+</section>
+<!--3rd Section-->
+
+
+
+ <!--4th Section Start-->
+<section class="bg-gradient-to-b from-[#0d1b2a] to-[#1b263b] py-20 px-6">
+  <div class="max-w-7xl mx-auto text-center">
+    <p class="text-gray-400 text-lg mb-3">مجالات عملنا</p>
+    <h2 class="text-white text-4xl md:text-5xl font-extrabold mb-14">
+      ما نبرع بالقيام به بكل احترافية
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-10 mb-20">
+      <!-- Card Template -->
+      <div
+        class="bg-[#1e2a38] hover:bg-[#29384a] transition-all border border-gray-600 rounded-2xl p-8 shadow-xl text-center cursor-pointer group">
+        <div
+          class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center group-hover:scale-110 transform transition">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m8-12h1m-1 4h1m-1 4h1" />
+          </svg>
+        </div>
+        <h3 class="text-white text-xl font-semibold mb-3">مخارج الهواء (الجريلات)</h3>
+        <p class="text-gray-300 text-sm">
+          نعتمد على تنفيذ مخارج هواء عالية الجودة تتناسب مع طبيعة المشروع ومتطلبات التشغيل مع ضمان توزيع هواء مثالي
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-gradient-to-r from-red-500 to-pink-600 hover:from-pink-600 hover:to-red-500 transition-all border border-red-400 rounded-2xl p-8 shadow-xl text-center text-white cursor-pointer group">
+        <div
+          class="w-20 h-20 mx-auto mb-6 bg-white bg-opacity-10 rounded-full flex items-center justify-center group-hover:scale-110 transform transition">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M10 1v10a2 2 0 01-2 2H5a2 2 0 01-2-2V1m18 0v10a2 2 0 01-2 2h-3a2 2 0 01-2-2V1M12 21a4 4 0 00-4-4H8a4 4 0 00-4 4h16a4 4 0 00-4-4h-4z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">تكييف الهواء</h3>
+        <p class="text-sm">
+          نهتم بتوفير حلول تكييف مبتكرة تجمع بين الراحة، توفير الطاقة، والعناية العالية، مع تنفيذ دقيق وفق أحدث المواصفات العالمية
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-[#1e2a38] hover:bg-[#29384a] transition-all border border-gray-600 rounded-2xl p-8 shadow-xl text-center cursor-pointer group">
+        <div
+          class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-teal-400 to-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transform transition">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M17 14v6m-3-3h6M6 10h2l1 4h4l1-4h2M7 7h10a1 1 0 011 1v2a1 1 0 01-1 1H7a1 1 0 01-1-1V8a1 1 0 011-1zM14 21a2 2 0 002-2h-4a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="text-white text-xl font-semibold mb-3">أعمال مجاري الهواء</h3>
+        <p class="text-gray-300 text-sm">
+          نتمتع بسنوات طويلة من الخبرة في تصميم وتركيب أعمال مجاري الهواء لأنظمة التكييف المركزي والمكيفات الصناعية والتجارية
+        </p>
+      </div>
+    </div>
+
+    <!-- Enhanced counters with consistent icon style -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+      <div
+        class="bg-white/5 rounded-2xl p-6 shadow-lg flex flex-col items-center text-white hover:scale-105 transform transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6" />
+        </svg>
+        <p class="text-4xl font-bold">176+</p>
+        <p class="text-sm mt-2">المشاريع المنفذة</p>
+      </div>
+
+      <div
+        class="bg-white/5 rounded-2xl p-6 shadow-lg flex flex-col items-center text-white hover:scale-105 transform transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+        </svg>
+        <p class="text-4xl font-bold">120+</p>
+        <p class="text-sm mt-2">عملاء راضون</p>
+      </div>
+
+      <div
+        class="bg-white/5 rounded-2xl p-6 shadow-lg flex flex-col items-center text-white hover:scale-105 transform transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7m0-7a5 5 0 00-5-5H7a5 5 0 015-5" />
+        </svg>
+        <p class="text-4xl font-bold">10</p>
+        <p class="text-sm mt-2">سنوات الخبرة</p>
+      </div>
+
+      <div
+        class="bg-white/5 rounded-2xl p-6 shadow-lg flex flex-col items-center text-white hover:scale-105 transform transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 10-8 0 4 4 0 008 0z" />
+        </svg>
+        <p class="text-4xl font-bold">50+</p>
+        <p class="text-sm mt-2">فريق العمل</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--4th Section End-->
+
+
+
+
+<!--5th Section Start-->
+<section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto rtl">
+  <div class="flex flex-col lg:flex-row items-center gap-12">
+
+    <!-- Text & Boxes -->
+    <div class="lg:w-2/3 flex flex-col justify-between h-[650px] relative">
+      
+      <!-- Title -->
+      <div>
+        <p class="text-custom-blue text-5xl font-semibold mb-4">لماذا نحن؟</p>
+        <h2 class="text-blue-900 text-3xl sm:text-4xl font-extrabold leading-snug mb-8">
+          لأننا نجمع بين الخبرة<br>التقنية والتنفيذ المتميز
+        </h2>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="bg-red-600 p-6 rounded-lg shadow-lg text-white flex items-center justify-center text-center text-sm font-semibold leading-relaxed">
+          تواصل معنا اليوم للتعرف على كيف<br>يمكننا توفير لك حلولاً مبتكرة عالية<br>الكفاءة، ووفقاً لأحدث المعايير العالمية.
+        </div>
+        <div class="bg-blue-600 p-6 rounded-lg shadow-lg text-white flex items-center justify-center text-center text-sm font-semibold leading-relaxed">
+          تواصل معنا اليوم للتعرف على كيف<br>يمكننا توفير لك حلولاً مبتكرة عالية<br>الكفاءة، ووفقاً لأحدث المعايير العالمية.
+        </div>
+      </div>
+
+      <!-- Paragraph & List -->
+      <div class="text-blue-900 text-base leading-relaxed">
+        <p class="mb-6 text-right">
+          لنقدم لك أفضل ما يقدمه سوق المقاولات في مجال التكييف وتوزيع الهواء مع اعتمادنا على أحدث التكنولوجيا وفريق عمل متخصص وملم بأدق التفاصيل الفنية.
+        </p>
+        <ul class="list-disc list-inside space-y-4 text-right">
+          <li><span class="font-bold">تقنيات حديثة:</span> نستخدم أحدث التقنيات في تصميم وتصنيع مجاري الهواء لضمان أعلى كفاءة.</li>
+          <li><span class="font-bold">جودة عالية:</span> نلتزم باستخدام أجود المواد والتصنيع وفق المعايير العالمية.</li>
+          <li><span class="font-bold">فريق متخصص:</span> يضم فريقنا نخبة من الخبراء في مجال التبريد والتكييف.</li>
+          <li><span class="font-bold">الالتزام بالمواعيد:</span> نحرص على تنفيذ المشاريع بدقة وفق الجداول الزمنية المتفق عليها.</li>
+          <li><span class="font-bold">حلول متكاملة:</span> نقدم خدمات التصميم، التصنيع، التركيب، الصيانة، والاستشارات الهندسية.</li>
+          <li><span class="font-bold">توريد جميع أنواع وأحجام وحدات التكييف:</span> بمختلف القدرات العالمية.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="lg:w-1/3 rounded-3xl overflow-hidden shadow-lg">
+      <img src="image/snb.jpeg" alt="Service Image" class="
+      w-full h-[600px] object-cover object-center rounded-3xl scale-y-90 skew-y-12" />
+    </div>
+
+  </div>
+</section>
+
+
+    <!--5th Section End-->
+
+    <!--6th Section Start-->
+     <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-section-heading text-3xl sm:text-4xl lg:text-5xl font-bold mb-12">
+                أفضل الموردون
+            </h2>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center">
+                
+                <div class="bg-logo-card p-4 rounded-lg flex items-center justify-center h-28 w-full max-w-[200px] border">
+                    <img src="https://t4.ftcdn.net/jpg/05/18/90/43/360_F_518904303_CcZFsghpzeBx1i4u2Dee2P4AHsJ4Zkd7.jpg" alt="Saudi Electricity Company Logo" class="max-h-full max-w-full object-contain">
+                </div>
+
+                <div class="bg-logo-card p-4 rounded-lg flex items-center justify-center h-28 w-full max-w-[200px] border">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSf3Rhcb8-CjYMf745EjMYzVSwgdf1ZRLp7w&s" alt="Bank Albilad Logo" class="max-h-full max-w-full object-contain">
+                </div>
+
+                <div class="bg-logo-card p-4 rounded-lg flex items-center justify-center h-28 w-full max-w-[200px] border">
+                    <img src="https://t4.ftcdn.net/jpg/04/69/76/51/360_F_469765187_BML1uZlIDxCI79sOIaSWSthR7zdleqoJ.jpg" alt="SNB Logo" class="max-h-full max-w-full object-contain">
+                </div>
+
+                <div class="bg-logo-card p-4 rounded-lg flex items-center justify-center h-28 w-full max-w-[200px] border">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkWf17kOtZ6HHJGWF7qNl9ftqyN34thmxipg&s" alt="SAMI Logo" class="max-h-full max-w-full object-contain">
+                </div>
+
+                <div class="bg-logo-card p-4 rounded-lg flex items-center justify-center h-28 w-full max-w-[200px] border">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp8w1ui9SdiIXyOEyss9QbGOjdYIVAmXzRVw&s" alt="stc Logo" class="max-h-full max-w-full object-contain">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--6th Section End-->
+
+
+
+    <!--7th Section Start-->
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-16 rtl">
+
+    <!-- Text Content (ডান দিকের লিস্ট) -->
+    <div class="w-full lg:w-2/3 space-y-14 text-right">
+
+      <hr class="border-gray-300 mb-8">
+
+      <div class="space-y-4 border border-gray-200 rounded-lg p-6 bg-white shadow-sm">
+
+        <!-- Service Item -->
+        <div class="flex items-center gap-3">
+          <div class="flex-shrink-0 bg-red-600 rounded-md w-10 h-10 flex items-center justify-center">
+            <!-- Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v6a8 8 0 0016 0V7" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v4m0 4v8" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-gray-900 leading-tight">
+              تصميم وتنفيذ أنظمة التكييف المركزي
+            </h3>
+            <p class="text-gray-600 text-sm leading-snug">
+              للمساحات السكنية والتجارية والصناعية
+            </p>
+          </div>
+        </div>
+
+        <!-- Service Item -->
+        <div class="flex items-center gap-3">
+          <div class="flex-shrink-0 bg-red-600 rounded-md w-10 h-10 flex items-center justify-center">
+            <!-- Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-gray-900 leading-tight">
+              تصنيع وتوريد مجاري الهواء (الدكت)
+            </h3>
+            <p class="text-gray-600 text-sm leading-snug">
+              قياسات عالمية عالية الجودة
+            </p>
+          </div>
+        </div>
+
+        <!-- Service Item -->
+        <div class="flex items-center gap-3">
+          <div class="flex-shrink-0 bg-red-600 rounded-md w-10 h-10 flex items-center justify-center">
+            <!-- Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-4a4 4 0 014-4h1l4 4v5a2 2 0 01-2 2H9z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17l-5 5m0 0v-5m0 5h5" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-gray-900 leading-tight">
+              صيانة وإصلاح أنظمة التكييف والتبريد
+            </h3>
+            <p class="text-gray-600 text-sm leading-snug">
+              لضمان استمرارية الأداء بكفاءة عالية
+            </p>
+          </div>
+        </div>
+
+        <!-- Service Item -->
+        <div class="flex items-center gap-3">
+          <div class="flex-shrink-0 bg-red-600 rounded-md w-10 h-10 flex items-center justify-center">
+            <!-- Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="7" width="18" height="10" rx="2" ry="2" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 10h.01M17 10h.01M7 14h.01M17 14h.01" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-gray-900 leading-tight">
+              تصنيع وتوريد وحدات التكييف والتبريد
+            </h3>
+            <p class="text-gray-600 text-sm leading-snug">
+              التجارية والصناعية بأنواعها وأحجامها المختلفة
+            </p>
+          </div>
+        </div>
+
+        <!-- Service Item -->
+        <div class="flex items-center gap-3">
+          <div class="flex-shrink-0  bg-red-600 rounded-md w-10 h-10 flex items-center justify-center">
+            <!-- Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m4-4h1a2 2 0 012 2v8a2 2 0 01-2 2h-1m-4-4v4h1m0 0H9v-4h1m-4-4H5a2 2 0 00-2 2v4a2 2 0 002 2h1m0 0v-4h1m0 0H5v-4h1z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-semibold text-gray-900 leading-tight">
+              تقديم الاستشارات الهندسية
+            </h3>
+            <p class="text-gray-600 text-sm leading-snug">
+              لتوفير حلول مخصصة ومبتكرة تتناسب مع احتياجات كل مشروع
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Image Column (বাম দিকে ছবি) -->
+    <div class="w-full lg:w-1/3 rounded-3xl overflow-hidden shadow-lg bg-[#E7EDF6]">
+      <img src="image/77.jpeg" alt="Service Image" class="w-full h-auto object-cover skew-y-12 -scale-100"/>
+    </div>
+
+</section>
+
+    <!--7th End-->
+
+    
+
+    <!-- 8th Section Start-->
+
+  <section class="max-w-7xl mx-auto py-20 px-4 bg-gradient-to-br from-[#f7f7f7] to-[#eaeef5] rounded-2xl shadow-inner">
+  <!-- Section Heading -->
+  <div class="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-blue-900 tracking-tight">أحدث أعمالنا ومنجزاتنا</h2>
+    <button class="bg-red-600 hover:bg-red-700 transition text-white px-5 py-2 rounded-full shadow-md text-sm">
+      جميع المشاريع
+    </button>
+  </div>
+
+  <!-- Projects Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+    <!-- Project Card -->
+    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 border border-gray-200">
+      <img src="image/1.jpeg" alt="الشركة السعودية للكهرباء" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+      <div class="p-5">
+        <h3 class="text-lg font-bold text-blue-800 mb-3">الشركة السعودية للكهرباء</h3>
+        <div class="flex justify-end">
+          <button class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repeat this card for each project -->
+    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 border border-gray-200">
+      <img src="image/2.jpeg" alt="البنك الأهلي SNB" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+      <div class="p-5">
+        <h3 class="text-lg font-bold text-blue-800 mb-3">البنك الأهلي SNB</h3>
+        <div class="flex justify-end">
+          <button class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 border border-gray-200">
+      <img src="image/3.jpeg" alt="STC" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+      <div class="p-5">
+        <h3 class="text-lg font-bold text-blue-800 mb-3">STC</h3>
+        <div class="flex justify-end">
+          <button class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 border border-gray-200">
+      <img src="image/8.jpeg" alt="بلديات أمانة مدينة الرياض" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+      <div class="p-5">
+        <h3 class="text-lg font-bold text-blue-800 mb-3">بلديات أمانة مدينة الرياض</h3>
+        <div class="flex justify-end">
+          <button class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 border border-gray-200">
+      <img src="image/9.jpeg" alt="NARJIS VIEW" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+      <div class="p-5">
+        <h3 class="text-lg font-bold text-blue-800 mb-3">NARJIS VIEW</h3>
+        <div class="flex justify-end">
+          <button class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 border border-gray-200">
+      <img src="image/10.jpeg" alt="الشركة السعودية للكهرباء" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+      <div class="p-5">
+        <h3 class="text-lg font-bold text-blue-800 mb-3">الشركة السعودية للكهرباء</h3>
+        <div class="flex justify-end">
+          <button class="bg-black text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!--8th Section End-->
+
+   
+    <!--Form Start-->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start py-16 px-4">
+
+  <!-- FAQ Section -->
+  <div>
+    <h2 class="text-2xl font-bold mb-6 text-right text-[#1C3D83]">أهم الأسئلة الشائعة</h2>
+
+    <div class="space-y-5">
+      <div class="border rounded-2xl p-5 text-right bg-white shadow-md hover:shadow-lg transition">
+        <p class="font-semibold mb-2 text-gray-800">ما هي الخدمات التي تقدمها الشركة؟</p>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          تقدم الشركة خدمات تصنيع مجاري الهواء، تصميم وتنفيذ أنظمة التكييف، توريد وحدات التكييف المركزية والمنزلية بالإضافة إلى الصيانة الدورية للمكيفات والأنظمة.
+        </p>
+      </div>
+      <div class="border rounded-2xl p-5 text-right bg-white shadow-md hover:shadow-lg transition">
+        <p class="font-semibold text-gray-800">بأي تقنيات يتم تصنيع مجاري الهواء (الدكت) لديكم؟</p>
+      </div>
+      <div class="border rounded-2xl p-5 text-right bg-white shadow-md hover:shadow-lg transition">
+        <p class="font-semibold text-gray-800">هل تقدمون خدمات الصيانة الدورية لأنظمة التكييف؟</p>
+      </div>
+      <div class="border rounded-2xl p-5 text-right bg-white shadow-md hover:shadow-lg transition">
+        <p class="font-semibold text-gray-800">هل تتعاملون مع وحدات عالمية في توريد وحدات التكييف؟</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form Section -->
+  <div class="bg-gradient-to-br from-[#f0f4ff] to-[#e4ecf8] border border-gray-300 rounded-3xl p-8 shadow-xl">
+    <h2 class="text-2xl font-bold mb-6 text-right text-[#1C3D83]">نحن هنا لتقديم المساعدة</h2>
+
+    <form class="space-y-5">
+      <input type="text" placeholder="الاسم:" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-right shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+      
+      <input type="text" placeholder="رقم الهاتف:" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-right shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+      
+      <input type="email" placeholder="البريد الالكتروني:" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-right shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+      
+      <textarea rows="4" placeholder="أخبرنا كيف يمكننا مساعدتك:" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-right shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+      
+      <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300">
+        إرسال
+      </button>
+    </form>
+  </div>
+
+</div>
+
+    <!--Form End-->
+
+
+      <!-- Footer -->
+  
+
+   <footer class="bg-gradient-to-br from-[#1C3D83] to-[#16356B] text-white px-6 py-12">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-right">
+
+    <!-- Column 1: Logo & Description -->
+    <div class="space-y-4">
+      <img src="image/logo.jpeg" alt="Logo" class="h-20 mb-2 rounded-xl shadow-md" />
+      <p class="text-gray-200 leading-relaxed text-sm">
+        في عالم يتطلب فيه العالم الهندسي دقة عالية وخبرة، تمكنك شركتنا من النجاح خلال تنفيذ مشاريع التبريد والتكييف بأعلى جودة.
+      </p>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div>
+      <h4 class="font-bold text-lg text-white mb-4 border-b border-white pb-2 inline-block">روابط سريعة</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-red-300 transition">الرئيسية</a></li>
+        <li><a href="#" class="hover:text-red-300 transition">خدماتنا</a></li>
+        <li><a href="#" class="hover:text-red-300 transition">أعمالنا</a></li>
+        <li><a href="#" class="hover:text-red-300 transition">من نحن</a></li>
+        <li><a href="#" class="hover:text-red-300 transition">تواصل معنا</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Contact Info -->
+    <div>
+      <h4 class="font-bold text-lg text-white mb-4 border-b border-white pb-2 inline-block">التواصل الاجتماعي</h4>
+      <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 space-y-3 text-sm text-gray-100 shadow-inner">
+        <div>
+          <span class="font-semibold">رقم الاتصال:</span><br>
+          0564227575 - 09664227575
+        </div>
+        <div>
+          <span class="font-semibold">البريد:</span><br>
+          <a href="mailto:info@a1arwa.com" class="text-red-300 hover:underline">info@a1arwa.com</a>
+        </div>
+        <div>
+          <span class="font-semibold">تابعنا:</span>
+          <div class="flex justify-end gap-3 mt-2 text-lg">
+            <a href="#" class="hover:text-red-400"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-red-400"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-red-400"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="text-center text-sm text-gray-300 mt-12 border-t border-gray-600 pt-6">
+    جميع الحقوق محفوظة لأروى لحلول التبريد 2025 | تصميم وبرمجة <span class="text-red-300 font-semibold">مدام ميديا</span>
+  </div>
+</footer>
+
+  <!--Fotter End-->
+  
+    
+
+
+
+
+    
+    <!-- JS -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+    }
+  </script>
+</body>
+
+
+
+</html>
